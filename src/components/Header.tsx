@@ -14,7 +14,10 @@ const Header = () => {
   };
   return (
     <TopBox>
-      <div onClick={() => setIsMenuOpen(!isMenuOpen)}>
+      <div
+        style={{ cursor: 'pointer' }}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
         <Menu />
       </div>
       <Link to='/main'>
