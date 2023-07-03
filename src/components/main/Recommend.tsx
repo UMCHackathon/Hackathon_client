@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import COLOR from '../../constants/colors';
 import FONT from '../../constants/fonts';
 
@@ -44,6 +44,15 @@ const Recommend = ({
   );
 };
 
+const moveUp = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+`;
+
 const RecommendBox = styled.button`
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   color: ${COLOR.BLACK};
@@ -58,6 +67,10 @@ const RecommendBox = styled.button`
   padding: 1.2rem 1rem;
   margin-bottom: 1rem;
   background: ${COLOR.WHITE};
+
+  &:hover {
+    animation: ${moveUp} 0.5s forwards;
+  }
 `;
 
 const RecommendLeft = styled.div`
