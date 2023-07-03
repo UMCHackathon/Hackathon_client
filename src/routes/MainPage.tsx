@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Recommend from '../components/main/Recommend';
 import { Container } from '../styles/Container';
 import Header from '../components/Header';
@@ -6,14 +6,17 @@ import { ReactComponent as MainPost } from '../assets/svg/MainPost.svg';
 import { ReactComponent as MainMap } from '../assets/svg/MainMap.svg';
 import COLOR from '../constants/colors';
 import FONT from '../constants/fonts';
+import { useNavigate } from 'react-router-dom';
 
 const MainPage = () => {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <Header />
-      <MainPostBox>
+      <MainPostBox onClick={() => navigate('/map')}>
         <MainPost />
-        <MainMap />
+        <AnimatedMainMap />
       </MainPostBox>
       <MainTextBox style={FONT.SUBTITLE3}>
         <MainText>쪽지에 적힌 미션을 수행하고</MainText>
@@ -55,6 +58,19 @@ const MainPage = () => {
   );
 };
 
+// Animation keyframes
+const slideAnimation = keyframes`
+    0% { transform: translateY(5px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(5px); }
+    easing: ease-in-out;
+  `;
+
+// Styled component for animated MainMap
+const AnimatedMainMap = styled(MainMap)`
+  animation: ${slideAnimation} 2s infinite;
+`;
+
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -80,8 +96,8 @@ const MainPostBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 14rem;
   margin-bottom: 2rem;
+  cursor: pointer;
 `;
 
 export default MainPage;
