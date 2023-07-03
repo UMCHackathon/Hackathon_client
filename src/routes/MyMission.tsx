@@ -30,7 +30,7 @@ const Text = styled.div`
   margin: 3vh auto 0 auto;
 `;
 
-const MyPage = () => {
+const MyMission = () => {
   const [nickName, setNickName] = useRecoilState(nickNameState);
 
   return (
@@ -78,4 +78,4 @@ const MyPage = () => {
   );
 };
 
-export default MyPage;
+export default MyMission;

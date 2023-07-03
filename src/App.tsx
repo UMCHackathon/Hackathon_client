@@ -1,5 +1,4 @@
 import React from 'react';
-import KakaoMap from './components/KakaoMap';
 import GlobalStyle from './styles/GlobalStyle';
 import { Routes, Route } from 'react-router-dom';
 import SplashPage from './routes/SplashPage';
@@ -8,9 +7,9 @@ import MainPage from './routes/MainPage';
 import MapPage from './routes/MapPage';
 import MissionPage from './routes/MissionPage';
 import MissionAddPage from './routes/MissionAddPage';
-import MyPage from './routes/MyPage';
 import MissionListPage from './routes/MissionListPage';
 import { RecoilRoot } from 'recoil';
+import MyMission from './routes/MyMission';
 
 function App() {
   return (
@@ -26,7 +25,7 @@ function App() {
             <Route path='add' element={<MissionAddPage />} />
           </Route>
           <Route path='/missionlist' element={<MissionListPage />} />
-          <Route path='/mypage' element={<MyPage />} />
+          <Route path='/mymission' element={<MyMission />} />
         </Routes>
       </RecoilRoot>
     </>
