@@ -20,7 +20,6 @@ const UserPage = () => {
       <UserContainer>
         <Profile />
         <UserBox>
-          <UserName>홍길동</UserName>
           <TagBox>
             <Tag>#25</Tag>
             <Tag>#식물</Tag>
@@ -28,6 +27,8 @@ const UserPage = () => {
             <Tag>#플레이</Tag>
           </TagBox>
           <UserHr />
+          <UserText>닉네임</UserText>
+          <NameInput placeholder='닉네임을 입력해주세요' />
           <UserText>여행지</UserText>
           <SelectBox name='여행지'>
             <Option value='서울'>서울</Option>
@@ -64,13 +65,7 @@ const UserBox = styled.div`
   padding: 2rem;
   border: 1px solid #e5e5e5;
   border-radius: 1.7rem;
-  margin: 1rem 0;
-`;
-
-const UserName = styled.div`
-  font-weight: bold;
-  font-size: 24px;
-  text-align: center;
+  margin: 1rem 0 2rem 0;
 `;
 
 const UserHr = styled.hr`
@@ -105,7 +100,7 @@ const Tag = styled.div`
 
 const SelectBox = styled.select`
   width: 50%;
-  height: 2rem;
+  height: 2.2rem;
   border-radius: 0.7rem;
   border: 2px solid #e5e5e5;
   padding: 0 0.7rem;
@@ -120,7 +115,7 @@ const Option = styled.option``;
 
 const CustomDatePicker = styled(DatePicker)`
   width: 10rem;
-  height: 2rem;
+  height: 2.2rem;
   border-radius: 0.7rem;
   border: 2px solid #e5e5e5;
   padding: 0 0.7rem;
@@ -129,6 +124,14 @@ const CustomDatePicker = styled(DatePicker)`
   &:focus {
     outline: none;
   }
+`;
+
+const NameInput = styled.input`
+  width: 50%;
+  height: 2.2rem;
+  border-radius: 0.7rem;
+  border: 2px solid #e5e5e5;
+  padding: 0 0.7rem;
 `;
 
 export default UserPage;
