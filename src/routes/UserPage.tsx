@@ -5,9 +5,14 @@ import Header from '../components/Header';
 import { ReactComponent as Profile } from '../assets/svg/Profile.svg';
 import styled from 'styled-components';
 import COLOR from '../constants/colors';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { useState } from 'react';
 
 const UserPage = () => {
   const navigate = useNavigate();
+
+  const [startDate, setStartDate] = useState<Date | any>(new Date());
 
   return (
     <Container>
@@ -32,6 +37,11 @@ const UserPage = () => {
             <Option value='제주도'>제주도</Option>
           </SelectBox>
           <UserText>여행 날짜</UserText>
+          <CustomDatePicker
+            selected={startDate}
+            onChange={(date: any) => setStartDate(date)}
+            dateFormat='yyyy-MM-dd'
+          />
         </UserBox>
       </UserContainer>
       <ButtonContainer>
@@ -97,8 +107,9 @@ const SelectBox = styled.select`
   width: 50%;
   height: 2rem;
   border-radius: 0.7rem;
-  border: 1px solid #e5e5e5;
+  border: 2px solid #e5e5e5;
   padding: 0 0.7rem;
+  cursor: pointer;
 
   &:focus {
     outline: none;
@@ -106,5 +117,18 @@ const SelectBox = styled.select`
 `;
 
 const Option = styled.option``;
+
+const CustomDatePicker = styled(DatePicker)`
+  width: 10rem;
+  height: 2rem;
+  border-radius: 0.7rem;
+  border: 2px solid #e5e5e5;
+  padding: 0 0.7rem;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+`;
 
 export default UserPage;
