@@ -1,5 +1,5 @@
 import { Container } from '../styles/Container';
-import { ReactComponent as Logo } from '../assets/svg/Logo.svg';
+import { ReactComponent as SplashLogo } from '../assets/svg/SplashLogo.svg';
 import styled from 'styled-components';
 import Button from '../components/Button';
 import COLOR from '../constants/colors';
@@ -11,7 +11,7 @@ const SplashPage = () => {
   return (
     <Container>
       <LogoBox>
-        <Logo />
+        <SplashLogo />
       </LogoBox>
       <Button text='로그인하기' onClick={() => navigate('user')} />
       <ButtonText>

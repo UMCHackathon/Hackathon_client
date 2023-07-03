@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import Recommend from '../components/main/Recommend';
 import { Container } from '../styles/Container';
+import Header from '../components/Header';
 
 const MainPage = () => {
   return (
     <Container>
+      <Header />
       <MainContainer>
         <Recommend
           src={require('../assets/여수.jpg')}
@@ -25,13 +27,6 @@ const MainPage = () => {
           title={'여수여행 좋아요'}
           subtitle={'여수 여행 추천합니다!! 완전 강추'}
           tag1={'# 여수'}
-          tag2={'# 바다'}
-        />
-        <Recommend
-          src={require('../assets/순천.jpg')}
-          title={'순천여행 좋아요'}
-          subtitle={'순천 여행 추천합니다!! 완전 강추'}
-          tag1={'# 순천'}
           tag2={'# 바다'}
         />
       </MainContainer>
