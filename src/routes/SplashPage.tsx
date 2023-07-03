@@ -13,7 +13,9 @@ const SplashPage = () => {
       <LogoBox>
         <SplashLogo />
       </LogoBox>
-      <Button text='로그인하기' onClick={() => navigate('user')} />
+      <ButtonBox>
+        <Button text='로그인하기' onClick={() => navigate('user')} />
+      </ButtonBox>
       <ButtonText>
         아직 회원이 아니세요?
         <ButtonSpan> 회원가입하기</ButtonSpan>
@@ -27,6 +29,11 @@ const LogoBox = styled.div`
   justify-content: center;
   align-items: center;
   height: 74%;
+`;
+
+const ButtonBox = styled.div`
+  width: 100%;
+  text-align: center;
 `;
 
 const ButtonText = styled.div`
