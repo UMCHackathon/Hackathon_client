@@ -32,7 +32,7 @@ const CommentList: React.FC<{ data: CommentProps[] }> = ({ data }) => {
 export default CommentList;
 
 const CommentBox = styled.div`
-    width: 300px;
+    width: 100%;
     height: fit-content;
     padding: 10px;
     border-bottom: 0.4px solid ${COLOR.GREEN1};
