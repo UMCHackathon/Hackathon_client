@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import COLOR from '../constants/colors';
 import FONT from '../constants/fonts';
 
@@ -22,6 +22,15 @@ const Button = ({
   );
 };
 
+const hoverAnimation = keyframes`
+  from {
+    background-color: ${COLOR.GREEN2};
+  }
+  to {
+    background-color: ${COLOR.GREEN1};
+  }
+`;
+
 export const StyledButton = styled.button`
   background-color: ${COLOR.GREEN2};
   width: 90%;
@@ -29,6 +38,10 @@ export const StyledButton = styled.button`
   color: #fff;
   border: none;
   border-radius: 12px;
+
+  &:hover {
+    animation: ${hoverAnimation} 0.5s forwards;
+  }
 `;
 
 export default Button;
