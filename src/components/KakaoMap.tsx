@@ -12,33 +12,29 @@ const { kakao } = window;
 
 const sampleData = [
   {
-    id: 0,
-    title: 'sky',
-    coords: new kakao.maps.LatLng(37.499241, 127.0215592),
-    alt: '지금 하늘 사진 찍기',
-    content:
-      '지금 고개를 들어 하늘을 보세요! 당신의 하늘은 어떤지 공유해주세요 :)'
-  },
-  {
-    id: 1,
-    title: 'flower',
+    title: 1,
     coords: new kakao.maps.LatLng(37.499242, 127.0256595),
     alt: '예쁜 꽃 사진 찍기',
     content: '주변에 예쁜 꽃을 찍어주세요! 셀카 금지 ~'
   },
   {
-    id: 2,
-    title: 'smile',
+    title: 2,
     coords: new kakao.maps.LatLng(37.5072425, 127.012159),
     alt: '지금 함께 있는 사람이랑 활짝 웃고 있는 사진 찍기',
     content: '옆에 있는 사람과 행복한 시간 보내세요 :)'
   },
   {
-    id: 3,
-    title: 'romantic',
+    title: 3,
     coords: new kakao.maps.LatLng(37.5032422, 127.021158),
     alt: '세상에서 가장 로맨틱한 사진 찍기',
     content: '당신이 나의 운명?'
+  },
+  {
+    title: 4,
+    coords: new kakao.maps.LatLng(37.499241, 127.0215592),
+    alt: '지금 하늘 사진 찍기',
+    content:
+      '지금 고개를 들어 하늘을 보세요! 당신의 하늘은 어떤지 공유해주세요 :)'
   }
 ];
 
@@ -104,12 +100,12 @@ const KakaoMap = () => {
         });
         marker.setMap(map);
         kakao.maps.event.addListener(marker, 'click', () => {
-          console.log(marker);
           navigate('/mission', {
-            state: { title: marker.Gb }
+            state: { id: marker.Gb }
           });
         });
       });
+
       const currentMarker = new kakao.maps.Marker({
         position: options.center
       });
