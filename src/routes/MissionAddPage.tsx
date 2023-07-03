@@ -13,11 +13,18 @@ const MissionAddPage = () => {
         <div style={FONT.HEADING}>ADD MISSION</div>
         <LocationBox>
           <Location />
-          <div style={FONT.SUBTITLE4}>장소 추가</div>
+          <div style={FONT.SUBTITLE3}>장소 추가</div>
         </LocationBox>
         <InputContainer>
-          <TitleInput type='text' placeholder='제목을 입력해주세요.' />
-          <ContentInput placeholder='내용을 입력해주세요.' />
+          <TitleInput
+            style={FONT.SUBTITLE3}
+            type='text'
+            placeholder='제목을 입력해주세요.'
+          />
+          <ContentInput
+            style={FONT.SUBTITLE3}
+            placeholder='내용을 입력해주세요.'
+          />
         </InputContainer>
       </AddContainer>
       <ButtonBox>
