@@ -69,12 +69,14 @@ const SubTitle = styled.div`
 
 const TravelImage = styled.img`
   width: 100%;
-  height: 20rem;
+  height: 25rem;
 `;
 
 const TravelBox = styled.div`
-  border-radius: 10px 10px 0px 0;
+  border-radius: 30px 30px 0px 0;
   background: white;
+  position: absolute;
+  bottom: 8rem;
   width: 100%;
   height: 20rem;
   padding: 1rem 2rem;
