@@ -49,7 +49,7 @@ const AddMissionButton = styled.button`
   align-items: center;
   justify-content: center;
   background-color: #36a400;
-  width: 70%;
+  width: 90%;
   height: 8%;
   margin: 0 auto;
   border-radius: 12px;

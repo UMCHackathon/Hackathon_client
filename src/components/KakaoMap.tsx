@@ -14,25 +14,25 @@ const sampleData = [
   {
     id: 0,
     title: 'sky',
-    coords: new kakao.maps.LatLng(37.505241, 127.0215592),
+    coords: new kakao.maps.LatLng(37.499241, 127.0215592),
     alt: '지금 하늘 사진 찍기'
   },
   {
     id: 1,
     title: 'flower',
-    coords: new kakao.maps.LatLng(37.504242, 127.0236595),
+    coords: new kakao.maps.LatLng(37.499242, 127.0256595),
     path: '예쁜 꽃 사진 찍기'
   },
   {
     id: 2,
     title: 'smile',
-    coords: new kakao.maps.LatLng(37.5072425, 127.022159),
+    coords: new kakao.maps.LatLng(37.5072425, 127.012159),
     path: '지금 함께 있는 사람이랑 활짝 웃고 있는 사진 찍기'
   },
   {
     id: 3,
     title: 'romantic',
-    coords: new kakao.maps.LatLng(37.5062422, 127.021158),
+    coords: new kakao.maps.LatLng(37.5032422, 127.021158),
     path: '세상에서 가장 로맨틱한 사진 찍기'
   }
 ];
@@ -44,7 +44,7 @@ const markerImageSource =
 const KakaoMap = () => {
   const [maps, setMaps] = useState();
   const [location, setLocation] = useState({ latitude: 0, longitude: 0 });
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   // 현재 위치(위도, 경도) 가져온다.
   const getPosSuccess = async (pos: GeolocationPosition) => {
@@ -78,7 +78,7 @@ const KakaoMap = () => {
           location.latitude,
           location.longitude
         ),
-        level: 3
+        level: 6
       };
 
       const map = new window.kakao.maps.Map(container, options);
@@ -99,13 +99,31 @@ const KakaoMap = () => {
         });
         marker.setMap(map);
         kakao.maps.event.addListener(marker, 'click', () => {
-          //   navigate(`/${marker.Gb}`);
+          navigate(`/${marker.Gb}`);
         });
       });
       const currentMarker = new kakao.maps.Marker({
         position: options.center
       });
       currentMarker.setMap(map);
+
+      const drawingCircle = new kakao.maps.Circle({
+        strokeWeight: 2, // 선의 두께입니다
+        strokeColor: '#36A400', // 선의 색깔입니다
+        strokeOpacity: 1,
+        strokeStyle: 'dashed',
+        fillColor: '#36A400', // 채우기 색
+        fillOpacity: 0.2,
+        radius: 1000 // 1km
+      });
+      const circleOptions = {
+        center: options.center,
+        radius: length
+      };
+
+      // 그려지고 있는 원의 옵션을 설정합니다
+      drawingCircle.setOptions(circleOptions);
+      drawingCircle.setMap(map);
     });
   }, [location]);
 
