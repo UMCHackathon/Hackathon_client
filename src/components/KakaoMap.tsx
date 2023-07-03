@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 declare global {
   interface Window {
@@ -10,34 +11,42 @@ const { kakao } = window;
 
 const sampleData = [
   {
-    title: '카카오',
-    coords: new kakao.maps.LatLng(37.505241, 127.0215592)
+    id: 0,
+    title: 'sky',
+    coords: new kakao.maps.LatLng(37.505241, 127.0215592),
+    alt: '지금 하늘 사진 찍기'
   },
   {
-    title: '생태연못',
-    coords: new kakao.maps.LatLng(37.504242, 127.0236595)
+    id: 1,
+    title: 'flower',
+    coords: new kakao.maps.LatLng(37.504242, 127.0236595),
+    path: '예쁜 꽃 사진 찍기'
   },
   {
-    title: '텃밭',
-    coords: new kakao.maps.LatLng(37.5072425, 127.022159)
+    id: 2,
+    title: 'smile',
+    coords: new kakao.maps.LatLng(37.5072425, 127.022159),
+    path: '지금 함께 있는 사람이랑 활짝 웃고 있는 사진 찍기'
   },
   {
-    title: '근린공원',
-    coords: new kakao.maps.LatLng(37.5062422, 127.021158)
+    id: 3,
+    title: 'romantic',
+    coords: new kakao.maps.LatLng(37.5062422, 127.021158),
+    path: '세상에서 가장 로맨틱한 사진 찍기'
   }
 ];
 
 // TODO: 이미지 경로를 프로퍼티로 담아서 반복문 돌릴 때 넘기면 될 듯?
-const imageSrc =
+const markerImageSource =
   'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png';
 
 const KakaoMap = () => {
   const [maps, setMaps] = useState();
-  const [markers, setMarkers] = useState();
   const [location, setLocation] = useState({ latitude: 0, longitude: 0 });
+  //   const navigate = useNavigate();
 
+  // 현재 위치(위도, 경도) 가져온다.
   const getPosSuccess = async (pos: GeolocationPosition) => {
-    // 현재 위치(위도, 경도) 가져온다.
     setLocation({
       latitude: pos.coords.latitude,
       longitude: pos.coords.longitude
@@ -55,6 +64,7 @@ const KakaoMap = () => {
       }
     );
   };
+
   useEffect(() => {
     getCurrentPosition();
   }, []);
@@ -72,23 +82,30 @@ const KakaoMap = () => {
 
       const map = new window.kakao.maps.Map(container, options);
       setMaps(maps);
-      //   setMarkers(new window.kakao.maps.Marker());
       const imageSize = new kakao.maps.Size(24, 35);
-      const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+      const markerImage = new kakao.maps.MarkerImage(
+        markerImageSource,
+        imageSize
+      );
 
       sampleData.forEach((data) => {
         const marker = new kakao.maps.Marker({
           map: map,
           position: data.coords,
           title: data.title,
-          image: markerImage
+          image: markerImage,
+          clickable: true
         });
         marker.setMap(map);
+        kakao.maps.event.addListener(marker, 'click', () => {
+          console.log(marker.Gb);
+          //   navigate(`/${marker.Gb}`);
+        });
       });
-      const marker = new kakao.maps.Marker({
+      const currentMarker = new kakao.maps.Marker({
         position: options.center
       });
-      marker.setMap(map);
+      currentMarker.setMap(map);
     });
   }, [location]);
 
