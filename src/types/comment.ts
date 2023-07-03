@@ -3,4 +3,5 @@ export interface CommentProps {
     content: string;
     nickName: string;
     createdAt: string;
+    imageUrl?: string | undefined
 }
