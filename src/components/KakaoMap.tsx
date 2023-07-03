@@ -135,7 +135,7 @@ const KakaoMap = () => {
 };
 
 const MapContainer = styled.div`
-  margin: 0 auto;
+  margin: 1.5rem auto 0 auto;
   width: 90%;
   height: 60vh;
 `;
