@@ -61,7 +61,7 @@ const MainPage = () => {
 // Animation keyframes
 const slideAnimation = keyframes`
     0% { transform: translateY(7px); }
-    50% { transform: translateY(-5px); }
+    30% { transform: translateY(-5px); }
     100% { transform: translateY(7px); }
   `;
 
