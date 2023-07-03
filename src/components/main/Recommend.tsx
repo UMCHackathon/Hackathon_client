@@ -46,14 +46,16 @@ const RecommendBox = styled.button`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  height: 20%;
+  width: 90%;
+  height: 8rem;
   border: 1px solid ${COLOR.GRAY};
   padding: 1.2rem 1rem;
+  margin-bottom: 1rem;
 `;
 
 const RecommendLeft = styled.div`
   width: 25%;
+  height: 100%;
   margin-right: 1rem;
 `;
 
