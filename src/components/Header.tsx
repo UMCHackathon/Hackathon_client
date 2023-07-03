@@ -34,11 +34,16 @@ const Header = () => {
 export default Header;
 
 const TopBox = styled.div`
-  padding: 20px;
-  width: 100%;
-  align-items: center;
-  height: 100px;
-  display: flex;
-  justify-content: space-between;
+    padding: 20px;
+    width: 30rem;
+    align-items: center;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 999;
+    background-color: white;
 `;
-const MenuBox = styled.div``;
