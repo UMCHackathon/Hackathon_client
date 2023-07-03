@@ -1,4 +1,5 @@
 import React from 'react';
+import KakaoMap from './components/KakaoMap';
 import GlobalStyle from './styles/GlobalStyle';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
       <GlobalStyle />
       <div>test</div>
+      <KakaoMap />
     </>
   );
 }
