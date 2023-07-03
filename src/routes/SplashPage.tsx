@@ -1,8 +1,10 @@
+import { Container } from '../styles/Container';
+
 const SplashPage = () => {
   return (
-    <div>
+    <Container>
       <h1>Splash Page</h1>
-    </div>
+    </Container>
   );
 };
 
