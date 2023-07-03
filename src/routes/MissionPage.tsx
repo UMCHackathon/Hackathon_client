@@ -15,6 +15,7 @@ import { addCommentItem } from '../hooks/selector';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { nickNameState } from '../states/nicknameState';
 import { ReactComponent as DeleteButton } from '../assets/svg/DeleteButton.svg';
+import { v4 as uuidv4 } from 'uuid';
 const dummy: MissionProps = {
   id: 0,
   title: '지금 하늘 사진 찍기',
@@ -64,7 +65,7 @@ const MissionPage = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     const newComment: CommentProps = {
-      id: 0, // 임의의 id 설정
+      id: uuidv4(),
       nickName: nickName,
       content: text,
       createdAt: getFormattedDate(new Date()),

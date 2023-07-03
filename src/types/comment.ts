@@ -1,5 +1,5 @@
 export interface CommentProps {
-    id: number;
+    id: string;
     content: string;
     nickName: string;
     createdAt: string;
