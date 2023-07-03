@@ -44,24 +44,24 @@ const MissionPage = () => {
   };
 
   return (
-    <Container>
-      <Header />
-      <MissionContainer>
-        <div style={FONT.HEADING}>MISSION</div>
-        <Mission data = {dummy}/>
-      </MissionContainer>
+      <Container>
+        <Header />
+        <MissionContainer>
+          <div style={FONT.HEADING}>MISSION</div>
+          <Mission data = {dummy}/>
+        </MissionContainer>
 
-      <InputContainer>
-        <Input type="text" placeholder="추억을 남겨주세요." value={inputValue} onChange={handleInputChange}/>
-        <Upload />
-        <button onClick={handleSubmit}><Send /></button>
-      </InputContainer>
+        <InputContainer>
+          <Input type="text" placeholder="추억을 남겨주세요." value={inputValue} onChange={handleInputChange}/>
+          <Upload />
+          <button onClick={handleSubmit}><Send /></button>
+        </InputContainer>
 
-      <MemoryContainer>
-        <MemoryTitle style={FONT.HEADING}>모두의 추억</MemoryTitle>
-        <CommentList data={dummyComments} />
-      </MemoryContainer>
-    </Container>
+        <MemoryContainer>
+          <MemoryTitle style={FONT.HEADING}>모두의 추억</MemoryTitle>
+          <CommentList data={dummyComments} />
+        </MemoryContainer>
+      </Container>
   );
 };
 
