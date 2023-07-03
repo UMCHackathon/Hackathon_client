@@ -7,9 +7,12 @@ import { ReactComponent as MainMap } from '../assets/svg/MainMap.svg';
 import COLOR from '../constants/colors';
 import FONT from '../constants/fonts';
 import { useNavigate } from 'react-router-dom';
+import { UseTreasure } from './../hooks/useTreasure';
 
 const MainPage = () => {
   const navigate = useNavigate();
+  const { latitude, longitude } = UseTreasure();
+  console.log(latitude, longitude);
 
   return (
     <Container>

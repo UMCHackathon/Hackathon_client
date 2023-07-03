@@ -11,7 +11,7 @@ import Mission from '../components/mission/mission';
 import CommentList from '../components/mission/comment';
 import { CommentProps } from '../types/comment';
 import { commentState } from '../states/commentState';
-import { addCommentItem } from '../hooks/selector';
+import { addCommentItem } from '../states/selector';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { nickNameState } from '../states/nicknameState';
 import { useLocation } from 'react-router-dom';
