@@ -8,11 +8,14 @@ import COLOR from '../constants/colors';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { nickNameState } from '../states/nicknameState';
 
 const UserPage = () => {
   const navigate = useNavigate();
 
   const [startDate, setStartDate] = useState<Date | any>(new Date());
+  const [nickName, setNickName] = useRecoilState(nickNameState);
 
   return (
     <Container>
@@ -28,7 +31,12 @@ const UserPage = () => {
           </TagBox>
           <UserHr />
           <UserText>닉네임</UserText>
-          <NameInput placeholder='닉네임을 입력해주세요' />
+          <NameInput
+            placeholder='닉네임을 입력해주세요'
+            onChange={(e: any) => {
+              setNickName(e.target.value);
+            }}
+          />
           <UserText>여행지</UserText>
           <SelectBox name='여행지'>
             <Option value='서울'>서울</Option>
