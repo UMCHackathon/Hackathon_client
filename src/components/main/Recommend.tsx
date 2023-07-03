@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import COLOR from '../constants/colors';
-import FONT from '../constants/fonts';
+import COLOR from '../../constants/colors';
+import FONT from '../../constants/fonts';
 
 interface RecommendProps {
   title?: string;
