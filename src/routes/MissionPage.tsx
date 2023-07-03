@@ -3,13 +3,14 @@ import { Container } from '../styles/Container';
 import MissionList from '../components/MissionList';
 import styled from 'styled-components';
 import plantImg from '../assets/plant.png';
+import COLOR from '../constants/colors';
 import FONT from '../constants/fonts';
 import Header from '../components/Header';
 
 const PlantImage = styled.img`
-  width: 20%;
-  height: 20%;
+  width: 30%;
   margin: 0 auto;
+  border-radius: 50%;
 `
 
 const MissionCard = styled.div`

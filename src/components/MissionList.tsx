@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import path from 'path';
+// import path from 'path';
 import styled from 'styled-components';
 import COLOR from '../constants/colors';
 import FONT from '../constants/fonts';
