@@ -39,12 +39,12 @@ const moveUp = keyframes`
 
 const Container = styled.div`
   width: 95%;
-  margin: 1.3rem auto;
+  margin: 1.4rem auto;
   display: flex;
   align-items: center;
   background-color: ${COLOR.GREEN4};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 8px 10px;
+  padding: 11px 10px;
   border-radius: 12px;
   cursor: pointer;
 

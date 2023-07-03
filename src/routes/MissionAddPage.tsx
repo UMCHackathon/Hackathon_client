@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { ReactComponent as Location } from '../assets/svg/Location.svg';
 import COLOR from '../constants/colors';
 import Button from '../components/Button';
+import { Link } from 'react-router-dom';
 const MissionAddPage = () => {
   return (
     <Container>
@@ -28,7 +29,10 @@ const MissionAddPage = () => {
         </InputContainer>
       </AddContainer>
       <ButtonBox>
-        <Button text='미션 추가하기' />
+        <Link to='/map'>
+          <Button text='미션 추가하기' />
+        </Link>
+
       </ButtonBox>
     </Container>
   );

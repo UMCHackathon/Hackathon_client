@@ -29,6 +29,7 @@ const MainPage = () => {
           subtitle={'여수 여행 추천합니다!! 완전 강추'}
           tag1={'# 여수'}
           tag2={'# 여행'}
+          onClick={() => navigate('/travel')}
         />
         <Recommend
           src={require('../assets/순천.jpg')}
@@ -58,14 +59,12 @@ const MainPage = () => {
   );
 };
 
-// Animation keyframes
 const slideAnimation = keyframes`
     0% { transform: translateY(7px); }
     30% { transform: translateY(-5px); }
     100% { transform: translateY(7px); }
   `;
 
-// Styled component for animated MainMap
 const AnimatedMainMap = styled(MainMap)`
   animation: ${slideAnimation} 2s infinite;
 `;

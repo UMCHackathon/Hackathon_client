@@ -64,6 +64,7 @@ const UserContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2rem;
 `;
 
 const UserBox = styled.div`

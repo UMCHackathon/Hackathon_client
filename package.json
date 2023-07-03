@@ -58,6 +58,7 @@
     "@storybook/react-webpack5": "^7.0.24",
     "@storybook/testing-library": "^0.0.14-next.2",
     "@types/react-datepicker": "^4.11.2",
+    "@types/uuid": "^9.0.2",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
     "babel-plugin-named-exports-order": "^0.0.2",
