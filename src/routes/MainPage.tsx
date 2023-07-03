@@ -60,10 +60,9 @@ const MainPage = () => {
 
 // Animation keyframes
 const slideAnimation = keyframes`
-    0% { transform: translateY(5px); }
+    0% { transform: translateY(7px); }
     50% { transform: translateY(-5px); }
-    100% { transform: translateY(5px); }
-    easing: ease-in-out;
+    100% { transform: translateY(7px); }
   `;
 
 // Styled component for animated MainMap
