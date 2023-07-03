@@ -10,6 +10,7 @@ import MissionAddPage from './routes/MissionAddPage';
 import MissionListPage from './routes/MissionListPage';
 import { RecoilRoot } from 'recoil';
 import MyMission from './routes/MyMission';
+import TravelPage from './routes/TravelPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/' element={<SplashPage />} />
           <Route path='/user' element={<UserPage />} />
           <Route path='/main' element={<MainPage />} />
+          <Route path='/travel' element={<TravelPage />} />
           <Route path='/map' element={<MapPage />} />
           <Route path='/mission' element={<MissionPage />} />
           <Route path='/missionadd' element={<MissionAddPage />} />
