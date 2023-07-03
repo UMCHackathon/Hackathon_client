@@ -10,6 +10,9 @@ import { useState } from 'react';
 import Mission from '../components/mission/mission';
 import CommentList from '../components/mission/comment';
 import { CommentProps } from '../types/comment';
+import { commentState } from '../states/commentState';
+import { addCommentItem } from '../hooks/selector';
+import { useRecoilValue, useRecoilState } from 'recoil';
 const dummy: MissionProps = {
   id: 0,
   title: '지금 하늘 사진 찍기',
@@ -17,51 +20,57 @@ const dummy: MissionProps = {
   당신의 하늘은 어떤지 공유해주세요 :)`,
   type: 'soil',
 }
-const dummyComments: CommentProps[] = [
-  {
-    id: 0,
-    nickName: '클로버',
-    content: '지금 내 하늘엔 보름달이 떠있어. 여행이랑 너무 잘 어울리는 하늘이야',
-    createdAt: '2021.04.18 20:19',
-  },
-  {
-    id: 1,
-    nickName: '규',
-    content: '오늘은 하늘이 너무 맑아서 구름이 하나 없어요ㅠㅠ',
-    createdAt: '2021.05.27 13:39',
-  },
-];
+const getFormattedDate = (date: Date): string => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  return `${year}.${month}.${day} ${hours}:${minutes}`;
+};
+
 const MissionPage = () => {
-  const [inputValue, setInputValue] = useState<string>('');
+  const [text, setText] = useState<string>('');
+  const [list, setList] = useRecoilState(commentState);
+  const newList = useRecoilValue(addCommentItem)
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
+    setText(event.target.value);
   };
+  
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log('입력된 값:', inputValue);
-    setInputValue('');
+    const newComment: CommentProps = {
+      id: 0, // 임의의 id 설정
+      nickName: '임의의 닉네임',
+      content: text,
+      createdAt: getFormattedDate(new Date()),
+    };
+    setList([...list, newComment]);
+    console.log('?', list)
+    setText('');
   };
+  
 
   return (
-    <Container>
-      <Header />
-      <MissionContainer>
-        <div style={FONT.HEADING}>MISSION</div>
-        <Mission data = {dummy}/>
-      </MissionContainer>
+      <Container>
+        <Header />
+        <MissionContainer>
+          <div style={FONT.HEADING}>MISSION</div>
+          <Mission data = {dummy}/>
+        </MissionContainer>
 
-      <InputContainer>
-        <Input type="text" placeholder="추억을 남겨주세요." value={inputValue} onChange={handleInputChange}/>
-        <Upload />
-        <button onClick={handleSubmit}><Send /></button>
-      </InputContainer>
+        <InputContainer>
+          <Input type="text" placeholder="추억을 남겨주세요." value={text} onChange={handleInputChange} />
+          <Upload />
+          <button onClick={handleSubmit}><Send /></button>
+        </InputContainer>
 
-      <MemoryContainer>
-        <MemoryTitle style={FONT.HEADING}>모두의 추억</MemoryTitle>
-        <CommentList data={dummyComments} />
-      </MemoryContainer>
-    </Container>
+        <MemoryContainer>
+          <MemoryTitle style={FONT.HEADING}>모두의 추억</MemoryTitle>
+          <CommentList data={list} />
+        </MemoryContainer>
+      </Container>
   );
 };
 

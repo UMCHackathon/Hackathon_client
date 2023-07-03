@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import COLOR from '../constants/colors';
-import FONT from '../constants/fonts';
+import COLOR from '../../constants/colors';
+import FONT from '../../constants/fonts';
 
 interface RecommendProps {
   title?: string;
@@ -8,6 +8,8 @@ interface RecommendProps {
   src?: string;
   tag1?: string;
   tag2?: string;
+  tag3?: string;
+  tag4?: string;
   onClick?: () => void;
 }
 const Recommend = ({
@@ -16,6 +18,8 @@ const Recommend = ({
   src,
   tag1,
   tag2,
+  tag3,
+  tag4,
   onClick = () => {
     console.log('clicked');
   }
@@ -30,8 +34,10 @@ const Recommend = ({
         <Title style={FONT.SUBTITLE2}>{title}</Title>
         <SubTitle style={FONT.SUBTITLE3}>{subtitle}</SubTitle>
         <TagBox style={FONT.SUBTITLE4}>
-          <Tag>{tag1}</Tag>
-          <Tag>{tag2}</Tag>
+          {tag1 && <Tag>{tag1}</Tag>}
+          {tag2 && <Tag>{tag2}</Tag>}
+          {tag3 && <Tag>{tag3}</Tag>}
+          {tag4 && <Tag>{tag4}</Tag>}
         </TagBox>
       </RecommendRight>
     </RecommendBox>
@@ -46,14 +52,17 @@ const RecommendBox = styled.button`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  height: 20%;
+  width: 90%;
+  height: 8rem;
   border: 1px solid ${COLOR.GRAY};
   padding: 1.2rem 1rem;
+  margin-bottom: 1rem;
+  background: ${COLOR.WHITE};
 `;
 
 const RecommendLeft = styled.div`
   width: 25%;
+  height: 100%;
   margin-right: 1rem;
 `;
 
