@@ -13,6 +13,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^6.0.2",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -52,17 +53,17 @@
     "@storybook/react": "^7.0.24",
     "@storybook/react-webpack5": "^7.0.24",
     "@storybook/testing-library": "^0.0.14-next.2",
-    "babel-plugin-named-exports-order": "^0.0.2",
-    "eslint-plugin-storybook": "^0.6.12",
-    "prop-types": "^15.8.1",
-    "storybook": "^7.0.24",
-    "webpack": "^5.88.1",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "eslint": "^8.44.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
-    "prettier": "^2.8.8"
+    "eslint-plugin-storybook": "^0.6.12",
+    "prettier": "^2.8.8",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.0.24",
+    "webpack": "^5.88.1"
   }
 }
