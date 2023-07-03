@@ -21,9 +21,8 @@ function App() {
           <Route path='/user' element={<UserPage />} />
           <Route path='/main' element={<MainPage />} />
           <Route path='/map' element={<MapPage />} />
-          <Route path='/mission' element={<MissionPage />}>
-            <Route path='add' element={<MissionAddPage />} />
-          </Route>
+          <Route path='/mission' element={<MissionPage />} />
+          <Route path='/missionadd' element={<MissionAddPage />} />
           <Route path='/missionlist' element={<MissionListPage />} />
           <Route path='/mymission' element={<MyMission />} />
         </Routes>

@@ -9,14 +9,14 @@ const HEADING: CSSProperties = {
 
 const SUBTITLE1: CSSProperties = {
   fontSize: '20px',
-  fontWeight: '500',
+  fontWeight: '600',
   lineHeight: '140%',
   letterSpacing: '-0.4px'
 };
 
 const SUBTITLE2: CSSProperties = {
   fontSize: '17px',
-  fontWeight: '500',
+  fontWeight: '600',
   lineHeight: '140%'
 };
 
