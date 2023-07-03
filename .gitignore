@@ -30,3 +30,5 @@ yarn-error.log*
 !states/.gitkeep
 !types/.gitkeep
 !utils/.gitkeep
+
+.env

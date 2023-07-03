@@ -1,4 +1,5 @@
 import React from 'react';
+import KakaoMap from './components/KakaoMap';
 import GlobalStyle from './styles/GlobalStyle';
 import { Routes, Route } from 'react-router-dom';
 import SplashPage from './routes/SplashPage';
