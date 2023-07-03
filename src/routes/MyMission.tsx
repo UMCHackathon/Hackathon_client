@@ -64,7 +64,7 @@ const TextBox = styled.div`
 `;
 
 const MissionCard = styled.div`
-  margin: 1rem 1.5rem;
+  margin: 2rem 1.5rem;
 `;
 
 const moveUp = keyframes`
