@@ -7,10 +7,11 @@ import Flower from '../assets/images/flower.png';
 import FONT from '../constants/fonts';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import Loading from '../components/Loading';
 
 const MapPage = () => {
   const navigate = useNavigate();
-
   return (
     <Container>
       <Header />

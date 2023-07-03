@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import Loading from './Loading';
 
 declare global {
   interface Window {
@@ -42,12 +43,8 @@ const sampleData = [
   }
 ];
 
-// TODO: 이미지 경로를 프로퍼티로 담아서 반복문 돌릴 때 넘기면 될 듯?
-const markerImageSource =
-  'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png';
-
 const KakaoMap = () => {
-  const [maps, setMaps] = useState();
+  const [isLoading, setIsLoading] = useState(true);
   const [location, setLocation] = useState({ latitude: 0, longitude: 0 });
   const navigate = useNavigate();
 
@@ -57,6 +54,10 @@ const KakaoMap = () => {
       latitude: pos.coords.latitude,
       longitude: pos.coords.longitude
     });
+    setIsLoading(false);
+
+    const root = document.getElementById('map');
+    if (root) root.style.display = 'block';
   };
 
   const getCurrentPosition = async () => {
@@ -87,7 +88,6 @@ const KakaoMap = () => {
       };
 
       const map = new window.kakao.maps.Map(container, options);
-      setMaps(maps);
       const imageSize = new kakao.maps.Size(34, 45);
 
       sampleData.forEach((data) => {
@@ -145,7 +145,8 @@ const KakaoMap = () => {
 
   return (
     <>
-      <MapContainer id='map'></MapContainer>
+      {isLoading && <Loading />}
+      <MapContainer id='map' style={{ display: 'none' }}></MapContainer>
     </>
   );
 };
