@@ -46,7 +46,7 @@ const sampleData = [
     coords: new kakao.maps.LatLng(37.5032422, 127.021158),
     title: '세상에서 가장 로맨틱한 사진 찍기',
     content: '당신이 나의 운명?',
-    type: 'light'
+    type: 'sun'
   }
 ];
 

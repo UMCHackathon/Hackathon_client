@@ -15,26 +15,30 @@ const sampleData = [
     title: 1,
     coords: new kakao.maps.LatLng(37.499242, 127.0256595),
     alt: '예쁜 꽃 사진 찍기',
-    content: '주변에 예쁜 꽃을 찍어주세요! 셀카 금지 ~'
+    content: '주변에 예쁜 꽃을 찍어주세요! 셀카 금지 ~',
+    type: 'soil'
   },
   {
     title: 2,
     coords: new kakao.maps.LatLng(37.5072425, 127.012159),
     alt: '지금 함께 있는 사람이랑 활짝 웃고 있는 사진 찍기',
-    content: '옆에 있는 사람과 행복한 시간 보내세요 :)'
+    content: '옆에 있는 사람과 행복한 시간 보내세요 :)',
+    type: 'water'
   },
   {
     title: 3,
     coords: new kakao.maps.LatLng(37.5032422, 127.021158),
     alt: '세상에서 가장 로맨틱한 사진 찍기',
-    content: '당신이 나의 운명?'
+    content: '당신이 나의 운명?',
+    type: 'seed'
   },
   {
     title: 4,
     coords: new kakao.maps.LatLng(37.499241, 127.0215592),
     alt: '지금 하늘 사진 찍기',
     content:
-      '지금 고개를 들어 하늘을 보세요! 당신의 하늘은 어떤지 공유해주세요 :)'
+      '지금 고개를 들어 하늘을 보세요! 당신의 하늘은 어떤지 공유해주세요 :)',
+    type: 'sun'
   }
 ];
 
@@ -84,13 +88,14 @@ const KakaoMap = () => {
 
       const map = new window.kakao.maps.Map(container, options);
       setMaps(maps);
-      const imageSize = new kakao.maps.Size(24, 35);
-      const markerImage = new kakao.maps.MarkerImage(
-        markerImageSource,
-        imageSize
-      );
+      const imageSize = new kakao.maps.Size(34, 45);
 
       sampleData.forEach((data) => {
+        const markerImageSource = `https://toyou-bucket.s3.ap-northeast-2.amazonaws.com/${data.type}.svg`;
+        const markerImage = new kakao.maps.MarkerImage(
+          markerImageSource,
+          imageSize
+        );
         const marker = new kakao.maps.Marker({
           map: map,
           position: data.coords,
@@ -106,8 +111,15 @@ const KakaoMap = () => {
         });
       });
 
+      const markerImage = new kakao.maps.MarkerImage(
+        'https://toyou-bucket.s3.ap-northeast-2.amazonaws.com/current.svg',
+        imageSize
+      );
+
       const currentMarker = new kakao.maps.Marker({
-        position: options.center
+        position: options.center,
+        image: markerImage,
+        opacity: 1
       });
       currentMarker.setMap(map);
 

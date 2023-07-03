@@ -9,31 +9,31 @@ const HEADING: CSSProperties = {
 
 const SUBTITLE1: CSSProperties = {
   fontSize: '20px',
-  fontWeight: '500',
+  fontWeight: '600',
   lineHeight: '140%',
   letterSpacing: '-0.4px'
 };
 
 const SUBTITLE2: CSSProperties = {
+  fontSize: '17px',
+  fontWeight: '600',
+  lineHeight: '140%'
+};
+
+const SUBTITLE3: CSSProperties = {
   fontSize: '16px',
   fontWeight: '500',
   lineHeight: '140%'
 };
 
-const SUBTITLE3: CSSProperties = {
-  fontSize: '14px',
-  fontWeight: '500',
-  lineHeight: '140%'
-};
-
 const SUBTITLE4: CSSProperties = {
-  fontSize: '12px',
+  fontSize: '14px',
   fontWeight: '400',
   lineHeight: '160%'
 };
 
 const SUBTITLE5: CSSProperties = {
-  fontSize: '10px',
+  fontSize: '12px',
   fontWeight: '400',
   lineHeight: '160%'
 };
