@@ -1,4 +1,4 @@
-import { Container } from '../styles/Container';
+import { Container } from '../components/Container';
 import { ReactComponent as SplashLogo } from '../assets/svg/SplashLogo.svg';
 import styled from 'styled-components';
 import Button from '../components/Button';

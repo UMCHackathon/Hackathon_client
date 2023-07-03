@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Container } from '../styles/Container';
+import { Container } from '../components/Container';
 import FONT from '../constants/fonts';
 import { ReactComponent as PlantProfile } from '../assets/svg/PlantProfile.svg';
 import { ReactComponent as Travel1 } from '../assets/svg/Travel1.svg';

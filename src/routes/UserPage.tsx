@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Container } from '../styles/Container';
+import { Container } from '../components/Container';
 import Button from '../components/Button';
 import Header from '../components/Header';
 import { ReactComponent as Profile } from '../assets/svg/Profile.svg';

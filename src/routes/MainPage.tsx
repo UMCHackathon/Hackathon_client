@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import Recommend from '../components/main/Recommend';
-import { Container } from '../styles/Container';
+import { Container } from '../components/Container';
 import Header from '../components/Header';
 import { ReactComponent as MainPost } from '../assets/svg/MainPost.svg';
 import { ReactComponent as MainMap } from '../assets/svg/MainMap.svg';

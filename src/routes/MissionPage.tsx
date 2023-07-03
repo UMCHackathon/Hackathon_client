@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import { Container } from '../styles/Container';
+import { Container } from '../components/Container';
 import styled from 'styled-components';
 import FONT from '../constants/fonts';
 import COLOR from '../constants/colors';
