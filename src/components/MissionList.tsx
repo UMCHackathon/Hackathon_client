@@ -1,43 +1,41 @@
 import React, { useState } from 'react';
-// import path from 'path';
 import styled from 'styled-components';
 import COLOR from '../constants/colors';
 import FONT from '../constants/fonts';
 
 type ListProps = {
-    onClick: () => void;
-    text: string;
-    image: string;
-    checked: boolean;
+  onClick: () => void;
+  text: string;
+  image: string;
+  checked: boolean;
 };
 
 const MissionList: React.FC<ListProps> = ({ onClick, text, image }) => {
-    const [checked, setChecked] = useState(false);
-    const handleCheck = () => {
-        setChecked(!checked);
-        onClick();
-    };
+  const [checked, setChecked] = useState(false);
+  const handleCheck = () => {
+    setChecked(!checked);
+    onClick();
+  };
 
-    return (
-        <Container>
-            <Image src={image} alt="Mission Image" />
-            <Text style={FONT.SUBTITLE3}>{text}</Text>
-            <CheckButton checked={checked} onClick={handleCheck}>
-                {checked ? <CheckIcon>✔️</CheckIcon> : null}
-            </CheckButton>
-        </Container>
-    );
+  return (
+    <Container>
+      <Image src={image} alt='Mission Image' />
+      <Text style={FONT.SUBTITLE3}>{text}</Text>
+      <CheckButton checked={checked} onClick={handleCheck}>
+        {checked ? <CheckIcon>✔️</CheckIcon> : null}
+      </CheckButton>
+    </Container>
+  );
 };
 
 const Container = styled.div`
   width: 95%;
-  margin: 4vh auto;
+  margin: 1.1rem auto;
   display: flex;
   align-items: center;
-  height: 45px;
   background-color: ${COLOR.GREEN4};
-  border: 1px solid ${COLOR.GREEN1};
-  padding: 5px 10px;
+  border: 1.5px solid ${COLOR.GREEN1};
+  padding: 8px 10px;
   border-radius: 12px;
 `;
 

@@ -2,45 +2,23 @@ import React from 'react';
 import { Container } from '../styles/Container';
 import MissionList from '../components/MissionList';
 import styled from 'styled-components';
-import plantImg from '../assets/plant.png';
-// import COLOR from '../constants/colors';
 import FONT from '../constants/fonts';
 import Header from '../components/Header';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { nickNameState } from '../states/nicknameState';
-
-const PlantImage = styled.img`
-  width: 30%;
-  margin: 0 auto;
-  border-radius: 50%;
-`;
-
-const MissionCard = styled.div`
-  margin-top: 10vh;
-`;
-
-const PlantCard = styled.div`
-  margin-top: 5vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const Text = styled.div`
-  margin: 3vh auto 0 auto;
-`;
+import { ReactComponent as PlantProfile } from '../assets/svg/PlantProfile.svg';
 
 const MyMission = () => {
-  const [nickName, setNickName] = useRecoilState(nickNameState);
+  const nickName = useRecoilValue(nickNameState);
 
   return (
     <Container>
       <Header />
       <PlantCard>
-        <PlantImage src={plantImg} />
-        <Text style={FONT.SUBTITLE2}>{nickName}</Text>
+        <PlantProfile />
+        <Text style={FONT.SUBTITLE2}>[ {nickName} ]</Text>
       </PlantCard>
-      <MissionCard>
+      <MissionCard style={FONT.SUBTITLE2}>
         <MissionList
           onClick={() => {
             console.log('clicked');
@@ -77,5 +55,23 @@ const MyMission = () => {
     </Container>
   );
 };
+
+const MissionCard = styled.div`
+  margin: 2rem 1.5rem;
+`;
+
+const PlantCard = styled.div`
+  width: 100%;
+  height: 15rem;
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Text = styled.div`
+  margin: 3vh auto 0 auto;
+`;
 
 export default MyMission;
