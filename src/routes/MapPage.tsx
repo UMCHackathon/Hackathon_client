@@ -4,8 +4,10 @@ import KakaoMap from '../components/KakaoMap';
 import { Container } from '../styles/Container';
 import COLOR from '../constants/colors';
 import Flower from '../assets/images/flower.png';
+import { useNavigate } from 'react-router-dom';
 
 const MapPage = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <Header />
@@ -18,7 +20,7 @@ const MapPage = () => {
         </Content>
         <Img src={Flower} />
       </ContentContainer>
-      <AddMissionButton>
+      <AddMissionButton onClick={() => navigate('/mission/add')}>
         <Text>미션 추가하기</Text>
       </AddMissionButton>
     </Container>
