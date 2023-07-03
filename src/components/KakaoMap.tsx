@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 declare global {
   interface Window {
@@ -98,7 +99,6 @@ const KakaoMap = () => {
         });
         marker.setMap(map);
         kakao.maps.event.addListener(marker, 'click', () => {
-          console.log(marker.Gb);
           //   navigate(`/${marker.Gb}`);
         });
       });
@@ -110,11 +110,16 @@ const KakaoMap = () => {
   }, [location]);
 
   return (
-    <div className='App'>
-      <div>카카오맵 API</div>
-      <div id='map' style={{ width: '500px', height: '500px' }}></div>
-    </div>
+    <>
+      <MapContainer id='map'></MapContainer>
+    </>
   );
 };
+
+const MapContainer = styled.div`
+  margin: 0 auto;
+  width: 90%;
+  height: 60vh;
+`;
 
 export default KakaoMap;
