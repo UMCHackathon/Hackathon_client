@@ -2,16 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 import COLOR from '../../constants/colors';
 import FONT from '../../constants/fonts';
+import { useRecoilState } from 'recoil';
 import { CommentProps } from '../../types/comment';
 import { ReactComponent as DeleteButton } from '../../assets/svg/DeleteButton.svg';
+import { commentState } from '../../states/commentState';
 
 const Comment = (data: CommentProps) => {
+  const [commentList, setCommentList] = useRecoilState(commentState);
+
+  const handleDelete = () => {
+    const updatedList = commentList.filter((comment) => comment.id !== data.id);
+    setCommentList(updatedList);
+  };
+
   return (
     <CommentBox>
       <Top>
         <Content style={FONT.SUBTITLE4}>{data.content}</Content>
         <DeleteBtnBox>
-          <DeleteButton />
+          <DeleteButton onClick={handleDelete} />
         </DeleteBtnBox>
       </Top>
       {data.imageUrl && <CommentImage src={data.imageUrl} alt="Comment Image" />}
@@ -65,5 +74,4 @@ const CommentImage = styled.img`
   margin-top: 10px;
   border-radius: 12px;
   border: 1px solid ${COLOR.GREEN1};
-  
 `;
