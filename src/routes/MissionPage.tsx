@@ -14,15 +14,43 @@ import { commentState } from '../states/commentState';
 import { addCommentItem } from '../hooks/selector';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { nickNameState } from '../states/nicknameState';
+import { useLocation } from 'react-router-dom';
 import { ReactComponent as DeleteButton } from '../assets/svg/DeleteButton.svg';
 import { v4 as uuidv4 } from 'uuid';
-const dummy: MissionProps = {
-  id: 0,
-  title: '지금 하늘 사진 찍기',
-  content: `지금 고개를 들어 하늘을 보세요!
-  당신의 하늘은 어떤지 공유해주세요 :)`,
-  type: 'soil'
-};
+
+const { kakao } = window;
+
+const sampleData = [
+  {
+    id: 1,
+    coords: new kakao.maps.LatLng(37.499241, 127.0215592),
+    title: '지금 하늘 사진 찍기',
+    content:
+      '지금 고개를 들어 하늘을 보세요! 당신의 하늘은 어떤지 공유해주세요 :)',
+    type: 'soil'
+  },
+  {
+    id: 2,
+    coords: new kakao.maps.LatLng(37.499242, 127.0256595),
+    title: '예쁜 꽃 사진 찍기',
+    content: '주변에 예쁜 꽃을 찍어주세요! 셀카 금지 ~',
+    type: 'water'
+  },
+  {
+    id: 3,
+    coords: new kakao.maps.LatLng(37.5072425, 127.012159),
+    title: '지금 함께 있는 사람이랑 활짝 웃고 있는 사진 찍기',
+    content: '옆에 있는 사람과 행복한 시간 보내세요 :)',
+    type: 'seed'
+  },
+  {
+    id: 4,
+    coords: new kakao.maps.LatLng(37.5032422, 127.021158),
+    title: '세상에서 가장 로맨틱한 사진 찍기',
+    content: '당신이 나의 운명?',
+    type: 'sun'
+  }
+];
 
 const getFormattedDate = (date: Date): string => {
   const year = date.getFullYear();
@@ -39,6 +67,9 @@ const MissionPage = () => {
   const [list, setList] = useRecoilState(commentState);
   const newList = useRecoilValue(addCommentItem);
   const nickName = useRecoilValue(nickNameState);
+  const location = useLocation();
+  const id = location.state.id;
+  const missionData = sampleData[id - 1];
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value);
@@ -48,12 +79,12 @@ const MissionPage = () => {
     if (event.target.files && event.target.files.length > 0) {
       const selectedFile = event.target.files[0];
       const reader = new FileReader();
-  
+
       reader.onload = () => {
         const image = reader.result as string;
         setImage(image);
       };
-  
+
       reader.readAsDataURL(selectedFile);
     }
   };
@@ -69,7 +100,7 @@ const MissionPage = () => {
       nickName: nickName,
       content: text,
       createdAt: getFormattedDate(new Date()),
-      imageUrl: image || undefined,
+      imageUrl: image || undefined
     };
     setList([...list, newComment]);
     setText('');
@@ -80,7 +111,7 @@ const MissionPage = () => {
       <Header />
       <MissionContainer>
         <div style={FONT.HEADING}>MISSION</div>
-        <Mission data={dummy} />
+        <Mission data={missionData} />
       </MissionContainer>
 
       <InputContainer>
@@ -103,9 +134,14 @@ const MissionPage = () => {
         </button>
       </InputContainer>
       {image && (
-        <Sort><ImgBox>
-          <img src={image} alt="Uploaded Image" width={200} height={200} />
-        </ImgBox><CancelButton onClick={handleImageCancel}><DeleteButton width={30} height={30} /></CancelButton></Sort>
+        <Sort>
+          <ImgBox>
+            <img src={image} alt='Uploaded Image' width={200} height={200} />
+          </ImgBox>
+          <CancelButton onClick={handleImageCancel}>
+            <DeleteButton width={30} height={30} />
+          </CancelButton>
+        </Sort>
       )}
       <MemoryContainer>
         <MemoryTitle style={FONT.HEADING}>모두의 추억</MemoryTitle>
