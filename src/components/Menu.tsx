@@ -22,9 +22,6 @@ const MenuContainer = ({ onClose }: MenuContainerProps) => {
         <Link to='/map'>
           <MenuItem>Map</MenuItem>
         </Link>
-        <Link to='/mission'>
-          <MenuItem>Mission</MenuItem>
-        </Link>
         <Link to='/missionadd'>
           <MenuItem>Mission +</MenuItem>
         </Link>

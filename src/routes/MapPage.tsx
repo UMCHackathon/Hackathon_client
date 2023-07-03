@@ -7,14 +7,16 @@ import Flower from '../assets/images/flower.png';
 import FONT from '../constants/fonts';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import Loading from '../components/Loading';
 
 const MapPage = () => {
   const navigate = useNavigate();
-
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <Container>
       <Header />
-      <KakaoMap />
+      {isLoading ? <KakaoMap /> : <Loading />}
       <ContentContainer>
         <Content style={FONT.SUBTITLE3}>
           <div>여행지에서 미션을 수행하고,</div>
