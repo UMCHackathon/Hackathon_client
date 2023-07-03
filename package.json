@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@storybook/addon-essentials": "^7.0.24",
     "@storybook/addon-interactions": "^7.0.24",
     "@storybook/addon-links": "^7.0.24",
@@ -57,5 +58,14 @@
     "prop-types": "^15.8.1",
     "storybook": "^7.0.24",
     "webpack": "^5.88.1"
+=======
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.8"
+>>>>>>> 7a850481e48de81a348088c1bfb55eb7b9a7dba7
   }
 }
