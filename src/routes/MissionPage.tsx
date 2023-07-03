@@ -3,7 +3,7 @@ import { Container } from '../styles/Container';
 import MissionList from '../components/MissionList';
 import styled from 'styled-components';
 import plantImg from '../assets/plant.png';
-import COLOR from '../constants/colors';
+// import COLOR from '../constants/colors';
 import FONT from '../constants/fonts';
 import Header from '../components/Header';
 
