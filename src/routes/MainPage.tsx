@@ -11,9 +11,8 @@ import { UseTreasure } from './../hooks/useTreasure';
 
 const MainPage = () => {
   const navigate = useNavigate();
-
-  const data = UseTreasure();
-  console.log(data);
+  const { latitude, longitude } = UseTreasure();
+  console.log(latitude, longitude);
 
   return (
     <Container>
