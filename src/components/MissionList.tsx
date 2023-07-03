@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import COLOR from '../constants/colors';
 import FONT from '../constants/fonts';
 
@@ -28,15 +28,31 @@ const MissionList: React.FC<ListProps> = ({ onClick, text, image }) => {
   );
 };
 
+const moveUp = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+`;
+
 const Container = styled.div`
   width: 95%;
-  margin: 1.1rem auto;
+  margin: 1.3rem auto;
   display: flex;
   align-items: center;
   background-color: ${COLOR.GREEN4};
-  border: 1.5px solid ${COLOR.GREEN1};
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 8px 10px;
   border-radius: 12px;
+  cursor: pointer;
+
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    animation: ${moveUp} 0.5s forwards;
+  }
 `;
 
 const Image = styled.img`

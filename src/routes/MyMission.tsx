@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../styles/Container';
 import MissionList from '../components/MissionList';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import FONT from '../constants/fonts';
 import Header from '../components/Header';
 import { useRecoilValue } from 'recoil';
@@ -16,8 +16,10 @@ const MyMission = () => {
       <Header />
       <PlantCard>
         <PlantProfile />
-        <Text style={FONT.SUBTITLE2}>[ {nickName} ]</Text>
       </PlantCard>
+      <TextBox>
+        <Text style={FONT.SUBTITLE2}>[ {nickName} ]</Text>
+      </TextBox>
       <MissionCard style={FONT.SUBTITLE2}>
         <MissionList
           onClick={() => {
@@ -56,18 +58,34 @@ const MyMission = () => {
   );
 };
 
+const TextBox = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 const MissionCard = styled.div`
-  margin: 2rem 1.5rem;
+  margin: 1rem 1.5rem;
+`;
+
+const moveUp = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
 `;
 
 const PlantCard = styled.div`
   width: 100%;
-  height: 15rem;
+  height: 12rem;
   margin-top: 5vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  animation: ${moveUp} 1s infinite alternate;
 `;
 
 const Text = styled.div`
