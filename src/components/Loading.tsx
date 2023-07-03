@@ -1,7 +1,6 @@
 import React from 'react';
 import { PacmanLoader } from 'react-spinners';
 import styled from 'styled-components';
-import COLOR from '../constants/colors';
 
 const Loading = () => {
   return (

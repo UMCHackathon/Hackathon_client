@@ -12,11 +12,10 @@ import Loading from '../components/Loading';
 
 const MapPage = () => {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
   return (
     <Container>
       <Header />
-      {isLoading ? <KakaoMap /> : <Loading />}
+      <KakaoMap />
       <ContentContainer>
         <Content style={FONT.SUBTITLE3}>
           <div>여행지에서 미션을 수행하고,</div>
