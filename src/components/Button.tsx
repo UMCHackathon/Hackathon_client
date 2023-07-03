@@ -34,7 +34,7 @@ const hoverAnimation = keyframes`
 export const StyledButton = styled.button`
   background-color: ${COLOR.GREEN2};
   width: 90%;
-  height: 45px;
+  height: 50px;
   color: #fff;
   border: none;
   border-radius: 12px;

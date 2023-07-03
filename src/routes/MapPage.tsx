@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Header from '../components/Header';
 import KakaoMap from '../components/KakaoMap';
-import { Container } from '../styles/Container';
+import { Container } from '../components/Container';
 import COLOR from '../constants/colors';
 import Flower from '../assets/images/flower.png';
 import FONT from '../constants/fonts';

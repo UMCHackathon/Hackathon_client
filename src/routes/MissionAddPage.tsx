@@ -1,6 +1,6 @@
 import Header from '../components/Header';
 import FONT from '../constants/fonts';
-import { Container } from '../styles/Container';
+import { Container } from '../components/Container';
 import styled from 'styled-components';
 import { ReactComponent as Location } from '../assets/svg/Location.svg';
 import COLOR from '../constants/colors';
@@ -32,7 +32,6 @@ const MissionAddPage = () => {
         <Link to='/map'>
           <Button text='미션 추가하기' />
         </Link>
-
       </ButtonBox>
     </Container>
   );

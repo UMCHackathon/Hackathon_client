@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '../styles/Container';
+import { Container } from '../components/Container';
 import MissionList from '../components/MissionList';
 import styled, { keyframes } from 'styled-components';
 import FONT from '../constants/fonts';
