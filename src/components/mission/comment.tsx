@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import COLOR from '../../constants/colors';
 import FONT from '../../constants/fonts';
 import { CommentProps } from '../../types/comment';
-import { ReactComponent as DeleteButton } from '../../asset/svg/DeleteButton.svg';
+import { ReactComponent as DeleteButton } from '../../assets/svg/DeleteButton.svg';
 
 const Comment = (data:CommentProps) => {
     return (
