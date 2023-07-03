@@ -24,6 +24,13 @@ const UserPage = () => {
           </TagBox>
           <UserHr />
           <UserText>여행지</UserText>
+          <SelectBox name='여행지'>
+            <Option value='서울'>서울</Option>
+            <Option value='대전'>대전</Option>
+            <Option value='대구'>대구</Option>
+            <Option value='부산'>부산</Option>
+            <Option value='제주도'>제주도</Option>
+          </SelectBox>
           <UserText>여행 날짜</UserText>
         </UserBox>
       </UserContainer>
@@ -62,7 +69,7 @@ const UserHr = styled.hr`
 `;
 
 const UserText = styled.div`
-  margin-top: 1rem;
+  margin: 1rem 0 0.5rem 0;
   font-size: 16px;
   font-weight: bold;
 `;
@@ -85,5 +92,19 @@ const Tag = styled.div`
   color: ${COLOR.WHITE};
   border-radius: 1.2rem;
 `;
+
+const SelectBox = styled.select`
+  width: 50%;
+  height: 2rem;
+  border-radius: 0.7rem;
+  border: 1px solid #e5e5e5;
+  padding: 0 0.7rem;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const Option = styled.option``;
 
 export default UserPage;
